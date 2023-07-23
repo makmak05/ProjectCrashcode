@@ -1,0 +1,70 @@
+//============================================================================
+// Name        : CrashCode.cpp
+// Author      : 
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+//Function Prototypes
+size_t crtSize();
+double* crtArr(size_t size);
+size_t crtVector();
+void passVec(vector<double>&vec, size_t size);  //passing the vector reference
+
+//Function Definition
+size_t crtSize(){
+    size_t size;
+    cout << "input size of element:";
+cin >> size;
+   return size;
+}
+
+double* crtArr(size_t size){
+double *ptrStorage = new double[size];
+
+for(size_t i {0};i < size; i++){
+	cout << "input element value:";
+cin >> ptrStorage[i];
+}
+    return ptrStorage;
+}
+
+size_t crtVector(){
+	size_t size;
+	cout << "input size value:";
+	cin >> size;
+	return size;
+}
+
+void passVec(vector<double>&vec, size_t size){   //passing the vector reference
+	for(size_t i{0};i < size;i++){
+		cout << "input value element:";
+	cin >> vec[i];
+	}
+
+	for(size_t j = 0;j < size;j++)
+		cout << vec[j] << endl;
+}
+
+// main function
+int main(){
+    cout << "hello world";
+
+size_t sizeData = crtSize();
+double *dataArr = crtArr(sizeData);
+for(size_t i {0};i < sizeData; i++)
+cout << dataArr[i]<< endl;
+
+size_t dataVec = crtVector();
+vector<double>vec(dataVec);   //Vector Declaration with size element
+passVec(vec,dataVec); //passing the vector element
+delete[]dataArr;
+
+    return 0;
+}
